@@ -2,54 +2,130 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>For My Love 💌</title>
+  <title>For My Love 💗</title>
   <style>
     body {
-      background-color: #fff0f5;
+      background: linear-gradient(135deg, #ffd6ec, #ffe9f3);
       font-family: "Comic Sans MS", cursive;
-      color: #444;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .browser {
+      background: white;
+      width: 350px;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
       text-align: center;
-      padding: 40px;
     }
+
+    .browser-header {
+      background: #ffb6d9;
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      padding: 5px 10px;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-right: 6px;
+    }
+    .dot.red { background: #ff5f56; }
+    .dot.yellow { background: #ffbd2e; }
+    .dot.green { background: #27c93f; }
+
+    .content {
+      padding: 20px;
+    }
+
     h1 {
-      color: #ff5e99;
+      color: #ff6fa8;
+      font-size: 22px;
+      margin-bottom: 20px;
     }
+
     a {
-      color: #ff80c0;
+      display: block;
+      margin: 10px 0;
+      padding: 10px;
+      background: #ffe4f2;
+      border-radius: 8px;
+      color: #ff69b4;
       text-decoration: none;
+      transition: 0.2s;
     }
+
+    a:hover {
+      background: #ffbde4;
+      transform: scale(1.03);
+    }
+
     .password-box {
-      margin-top: 50px;
+      margin-top: 20px;
     }
-    .hidden {
-      display: none;
+
+    input {
+      padding: 8px;
+      border: 1px solid #ffb6d9;
+      border-radius: 5px;
     }
+
+    button {
+      background: #ffb6d9;
+      border: none;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 5px;
+      margin-left: 5px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background: #ff8fc6;
+    }
+
+    .hidden { display: none; }
   </style>
 </head>
 <body>
-  <h1>💗 For My Love 💗</h1>
-  <p>Enter our special password to see my letters and songs:</p>
-  <div class="password-box">
-    <input type="password" id="password" placeholder="our secret...">
-    <button onclick="checkPassword()">Enter</button>
-  </div>
+  <div class="browser">
+    <div class="browser-header">
+      <div class="dot red"></div>
+      <div class="dot yellow"></div>
+      <div class="dot green"></div>
+    </div>
+    <div class="content">
+      <h1>💗 For My Love 💗</h1>
+      <p>Enter our secret password:</p>
 
-  <div id="content" class="hidden">
-    <h2>💌 Letters</h2>
-    <p><a href="letters.html">Read my letters to you</a></p>
+      <div class="password-box">
+        <input type="password" id="password" placeholder="our secret...">
+        <button onclick="checkPassword()">Enter</button>
+      </div>
 
-    <h2>🎵 Songs That Remind Me of You</h2>
-    <p><a href="songs.html">Listen here</a></p>
+      <div id="content" class="hidden">
+        <a href="letters.html">💌 Letters</a>
+        <a href="songs.html">🎵 Songs</a>
+      </div>
+    </div>
   </div>
 
   <script>
     function checkPassword() {
       const pass = document.getElementById("password").value;
-      if (pass === "Skye+ParkerForever") { // change this to your cute password!
+      if (pass === "S+PwithGod") { // change this to your real password
         document.querySelector(".password-box").style.display = "none";
         document.getElementById("content").classList.remove("hidden");
       } else {
-        alert("Try again my love (You got this and I love you)");
+        alert("Try again my love");
       }
     }
   </script>
