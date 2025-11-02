@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>For My Love 💌</title>
+  <style>
+    body {
+      background-color: #fff0f5;
+      font-family: "Comic Sans MS", cursive;
+      color: #444;
+      text-align: center;
+      padding: 40px;
+    }
+    h1 {
+      color: #ff5e99;
+    }
+    a {
+      color: #ff80c0;
+      text-decoration: none;
+    }
+    .password-box {
+      margin-top: 50px;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>💗 For My Love 💗</h1>
+  <p>Enter our special password to see my letters and songs:</p>
+  <div class="password-box">
+    <input type="password" id="password" placeholder="our secret...">
+    <button onclick="checkPassword()">Enter</button>
+  </div>
+
+  <div id="content" class="hidden">
+    <h2>💌 Letters</h2>
+    <p><a href="letters.html">Read my letters to you</a></p>
+
+    <h2>🎵 Songs That Remind Me of You</h2>
+    <p><a href="songs.html">Listen here</a></p>
+  </div>
+
+  <script>
+    function checkPassword() {
+      const pass = document.getElementById("password").value;
+      if (pass === "cutepass123") { // change this to your cute password!
+        document.querySelector(".password-box").style.display = "none";
+        document.getElementById("content").classList.remove("hidden");
+      } else {
+        alert("That’s not it, my love 🥺");
+      }
+    }
+  </script>
+</body>
+</html>
