@@ -16,11 +16,12 @@
 
     .browser {
       background: white;
-      width: 350px;
+      width: 400px;
       border-radius: 10px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
       overflow: hidden;
       text-align: center;
+      transition: all 0.3s ease;
     }
 
     .browser-header {
@@ -51,30 +52,11 @@
       margin-bottom: 20px;
     }
 
-    a {
-      display: block;
-      margin: 10px 0;
-      padding: 10px;
-      background: #ffe4f2;
-      border-radius: 8px;
-      color: #ff69b4;
-      text-decoration: none;
-      transition: 0.2s;
-    }
-
-    a:hover {
-      background: #ffbde4;
-      transform: scale(1.03);
-    }
-
-    .password-box {
-      margin-top: 20px;
-    }
-
     input {
       padding: 8px;
       border: 1px solid #ffb6d9;
       border-radius: 5px;
+      outline: none;
     }
 
     button {
@@ -93,6 +75,66 @@
     }
 
     .hidden { display: none; }
+
+    /* Browser tab styling */
+    .tabs {
+      display: flex;
+      justify-content: center;
+      background: #ffe4f2;
+      border-bottom: 2px solid #ffd1e8;
+      border-top: 2px solid #ffd1e8;
+    }
+
+    .tab {
+      flex: 1;
+      padding: 10px;
+      cursor: pointer;
+      color: #ff69b4;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+
+    .tab:hover {
+      background: #ffd1e8;
+    }
+
+    .tab.active {
+      background: #ffb6d9;
+      color: white;
+    }
+
+    .tab-content {
+      padding: 20px;
+      animation: fadeIn 0.4s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .letter {
+      background: #fffafc;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      border-left: 5px solid #ffb6d9;
+      box-shadow: 0 3px 5px rgba(0,0,0,0.05);
+      text-align: left;
+    }
+
+    .song {
+      margin: 8px 0;
+    }
+
+    .song a {
+      color: #ff69b4;
+      text-decoration: none;
+    }
+
+    .song a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -102,18 +144,35 @@
       <div class="dot yellow"></div>
       <div class="dot green"></div>
     </div>
-    <div class="content">
+
+    <div class="content" id="login-section">
       <h1>💗 For My Love 💗</h1>
       <p>Enter our secret password:</p>
 
-      <div class="password-box">
-        <input type="password" id="password" placeholder="our secret...">
-        <button onclick="checkPassword()">Enter</button>
+      <input type="password" id="password" placeholder="our secret...">
+      <button onclick="checkPassword()">Enter</button>
+    </div>
+
+    <div id="main-content" class="hidden">
+      <div class="tabs">
+        <div class="tab active" onclick="openTab('letters')">💌 Letters</div>
+        <div class="tab" onclick="openTab('songs')">🎵 Songs</div>
       </div>
 
-      <div id="content" class="hidden">
-        <a href="letters.html">💌 Letters</a>
-        <a href="songs.html">🎵 Songs</a>
+      <div id="letters" class="tab-content">
+        <div class="letter">
+          <h3>May 12, 2025</h3>
+          <p>Dear love, today I thought of you all day. The way you smile still makes my heart race...</p>
+        </div>
+        <div class="letter">
+          <h3>June 4, 2025</h3>
+          <p>I heard our song today and couldn’t stop smiling 🥰</p>
+        </div>
+      </div>
+
+      <div id="songs" class="tab-content hidden">
+        <div class="song"><a href="https://open.spotify.com/track/...">Perfect – Ed Sheeran</a></div>
+        <div class="song"><a href="https://open.spotify.com/track/...">Until I Found You – Stephen Sanchez</a></div>
       </div>
     </div>
   </div>
@@ -121,12 +180,20 @@
   <script>
     function checkPassword() {
       const pass = document.getElementById("password").value;
-      if (pass === "S+PwithGod") { // change this to your real password
-        document.querySelector(".password-box").style.display = "none";
-        document.getElementById("content").classList.remove("hidden");
+      if (pass === "S+P") { // change to your password
+        document.getElementById("login-section").classList.add("hidden");
+        document.getElementById("main-content").classList.remove("hidden");
       } else {
-        alert("Try again my love");
+        alert("That’s not it, my love 🥺");
       }
+    }
+
+    function openTab(tabName) {
+      document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(content => content.classList.add('hidden'));
+      
+      document.querySelector(`[onclick="openTab('${tabName}')"]`).classList.add('active');
+      document.getElementById(tabName).classList.remove('hidden');
     }
   </script>
 </body>
