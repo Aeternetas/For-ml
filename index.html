@@ -16,14 +16,16 @@
     margin: 0;
   }
 
-  .browser {
-    background: white;
-    width: 420px;
-    border-radius: 10px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
-    text-align: center;
-    transition: all 0.3s ease;
+.browser {
+  background: white;
+  width: 600px;         /* ⬅️ wider (you can even try 700px) */
+  height: 700px;        /* ⬅️ taller window */
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  text-align: center;
+  transition: all 0.3s ease;
+
   }
 
   .browser-header {
@@ -104,7 +106,7 @@
     animation: fadeIn 0.4s ease;
     text-align: left;
     overflow-y: auto;
-    max-height: 300px;
+    max-height: 500px;
   }
 
   @keyframes fadeIn {
@@ -126,6 +128,7 @@
     position: relative;
     transform: rotate(-0.3deg);
     transition: 0.3s;
+    
   }
 
   .letter:hover {
