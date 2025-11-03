@@ -1,141 +1,149 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Poppins:wght@500&display=swap" rel="stylesheet">
+
   <meta charset="UTF-8">
   <title>For My Love 💗</title>
-  <style>
-    body {
-      background: linear-gradient(135deg, #ffd6ec, #ffe9f3);
-      font-family: "Comic Sans MS", cursive;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-    }
+ <style>
+  body {
+    background: linear-gradient(135deg, #ffd6ec, #ffe9f3);
+    font-family: "Comic Sans MS", cursive;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+  }
 
-    .browser {
-      background: white;
-      width: 400px;
-      border-radius: 10px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-      overflow: hidden;
-      text-align: center;
-      transition: all 0.3s ease;
-    }
+  .browser {
+    background: white;
+    width: 420px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
 
-    .browser-header {
-      background: #ffb6d9;
-      display: flex;
-      align-items: center;
-      justify-content: start;
-      padding: 5px 10px;
-    }
+  .browser-header {
+    background: #ffb6d9;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 5px 10px;
+  }
 
-    .dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      margin-right: 6px;
-    }
-    .dot.red { background: #ff5f56; }
-    .dot.yellow { background: #ffbd2e; }
-    .dot.green { background: #27c93f; }
+  .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 6px;
+  }
+  .dot.red { background: #ff5f56; }
+  .dot.yellow { background: #ffbd2e; }
+  .dot.green { background: #27c93f; }
 
-    .content {
-      padding: 20px;
-    }
+  .content { padding: 20px; }
 
-    h1 {
-      color: #ff6fa8;
-      font-size: 22px;
-      margin-bottom: 20px;
-    }
+  h1 {
+    color: #ff6fa8;
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
 
-    input {
-      padding: 8px;
-      border: 1px solid #ffb6d9;
-      border-radius: 5px;
-      outline: none;
-    }
+  input {
+    padding: 8px;
+    border: 1px solid #ffb6d9;
+    border-radius: 5px;
+    outline: none;
+  }
 
-    button {
-      background: #ffb6d9;
-      border: none;
-      color: white;
-      padding: 8px 12px;
-      border-radius: 5px;
-      margin-left: 5px;
-      cursor: pointer;
-      transition: 0.2s;
-    }
+  button {
+    background: #ffb6d9;
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+  }
 
-    button:hover {
-      background: #ff8fc6;
-    }
+  button:hover { background: #ff8fc6; }
 
-    .hidden { display: none; }
+  .hidden { display: none; }
 
-    /* Browser tab styling */
-    .tabs {
-      display: flex;
-      justify-content: center;
-      background: #ffe4f2;
-      border-bottom: 2px solid #ffd1e8;
-      border-top: 2px solid #ffd1e8;
-    }
+  /* Browser tab styling */
+  .tabs {
+    display: flex;
+    justify-content: center;
+    background: #ffe4f2;
+    border-bottom: 2px solid #ffd1e8;
+    border-top: 2px solid #ffd1e8;
+  }
 
-    .tab {
-      flex: 1;
-      padding: 10px;
-      cursor: pointer;
-      color: #ff69b4;
-      font-weight: bold;
-      transition: 0.2s;
-    }
+  .tab {
+    flex: 1;
+    padding: 10px;
+    cursor: pointer;
+    color: #ff69b4;
+    font-weight: bold;
+    transition: 0.2s;
+  }
 
-    .tab:hover {
-      background: #ffd1e8;
-    }
+  .tab:hover { background: #ffd1e8; }
 
-    .tab.active {
-      background: #ffb6d9;
-      color: white;
-    }
+  .tab.active {
+    background: #ffb6d9;
+    color: white;
+  }
 
-    .tab-content {
-      padding: 20px;
-      animation: fadeIn 0.4s ease;
-    }
+  .tab-content {
+    padding: 20px;
+    animation: fadeIn 0.4s ease;
+    text-align: left;
+    overflow-y: auto;
+    max-height: 300px;
+  }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 
-    .letter {
-      background: #fffafc;
-      padding: 15px;
-      border-radius: 10px;
-      margin-bottom: 10px;
-      border-left: 5px solid #ffb6d9;
-      box-shadow: 0 3px 5px rgba(0,0,0,0.05);
-      text-align: left;
-    }
+  /* 💌 Pretty Letter Styling */
+  .letter {
+    background: #fffdf9;
+    background-image: radial-gradient(#fce3ec 1px, transparent 0);
+    background-size: 15px 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(255, 182, 193, 0.3);
+    padding: 20px;
+    margin-bottom: 20px;
+    font-family: "Dancing Script", cursive;
+    color: #444;
+    position: relative;
+    transform: rotate(-0.3deg);
+    transition: 0.3s;
+  }
 
-    .song {
-      margin: 8px 0;
-    }
+  .letter:hover {
+    transform: rotate(0deg) scale(1.02);
+    box-shadow: 0 6px 12px rgba(255, 182, 193, 0.4);
+  }
 
-    .song a {
-      color: #ff69b4;
-      text-decoration: none;
-    }
+  .letter h3 {
+    color: #ff6fa8;
+    font-family: "Poppins", sans-serif;
+  }
 
-    .song a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  /* Songs */
+  .song { margin: 8px 0; }
+  .song a { color: #ff69b4; text-decoration: none; }
+  .song a:hover { text-decoration: underline; }
+</style>
+
 </head>
 <body>
   <div class="browser">
@@ -160,6 +168,22 @@
       </div>
 
       <div id="letters" class="tab-content">
+       
+  <div class="letter">
+    <h3>May 12, 2025</h3>
+    <p>Dear love,</p>
+    <p>Today I thought of you all day. The way you smile still makes my heart race, even when I just picture it. Thank you for always making the little things feel like everything.</p>
+    <p>With all my heart,<br>— Me 💕</p>
+  </div>
+
+  <div class="letter">
+    <h3>June 4, 2025</h3>
+    <p>Hey you,</p>
+    <p>I heard our song today and I couldn’t stop smiling. It’s crazy how a few notes can make me feel like you’re right next to me again.</p>
+    <p>Love always,<br>— Me 🌸</p>
+  </div>
+</div>
+
         <div class="letter">
           <h3>May 12, 2025</h3>
           <p>Dear love, today I thought of you all day. The way you smile still makes my heart race...</p>
